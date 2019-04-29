@@ -1,0 +1,7 @@
+Complexity of problems
+
+P0: The time complexity is O(N) where N is the highest number between the number of rows on calls.csv and texts.csv
+P1: The time complexity is O(N) where N is the number of records between calls.csv and texts.csv
+P2:
+P3:
+P4:
