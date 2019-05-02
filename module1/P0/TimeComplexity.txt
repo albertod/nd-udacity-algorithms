@@ -3,5 +3,5 @@ Complexity of problems
 P0: The time complexity is O(N) where N is the highest number between the number of rows on calls.csv and texts.csv
 P1: The time complexity is O(N) where N is the number of records between calls.csv and texts.csv
 P2: The time complexity is O(N LogN). This is a classical example where sorting happens on the background to find the max element in a collection with N elements. This takes N Log N. Now if the collection was already sorted (e.i sorted by duration time) then I could have Binary Search for a LogN complexity time)
-P3:
-P4:
+P3: The time complexity is O(N). Where N is the number of records on calls.csv
+P4: The time complexity of this problem is O(N), where N is the highest number between the number of rows on calls.csv and texts.csv
