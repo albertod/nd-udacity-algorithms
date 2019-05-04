@@ -45,6 +45,7 @@ The percentage should have 2 decimal digits
 
 import csv
 
+
 def getBangaloreCalls():
     prefixes = set()
     calls_to_bangalore = list()
@@ -53,39 +54,41 @@ def getBangaloreCalls():
         reader = csv.reader(f)
         for row in reader:
             call = Call(row[0], row[1], row[2], row[3])
-            if (row[0].startswith('(080)')): #It is a call from bangalore
-              calls_from_bangalore +=1
-               # check is not telemarketer
-              if not call.dst_number.startswith('140'):
-                if call.dst_number.startswith("("):
-                  # Mobile number
-                  prefixes.add(call.dst_number[call.dst_number.find("(") + 1:call.dst_number.find(")")])
-                else:
-                  # Landline
-                  prefixes.add(call.dst_number.split(" ")[0])
-                
-                if call.dst_number.startswith('(080)'):
-                  calls_to_bangalore.append(call.dst_number)
+            if (row[0].startswith('(080)')):  # It is a call from bangalore
+                calls_from_bangalore += 1
+                # check is not telemarketer
+                if not call.dst_number.startswith('140'):
+                    if call.dst_number.startswith("("):
+                        # Landline
+                        prefixes.add(call.dst_number[call.dst_number.find(
+                            "(") + 1:call.dst_number.find(")")])
+                    else:
+                        # Mobile phone
+                        prefixes.add(call.dst_number.split(" ")[0][:4])
 
-      
-    percentage_calls_to_bangalore = (len(calls_to_bangalore)/calls_from_bangalore) * 100
-    
+                    if call.dst_number.startswith('(080)'):
+                        calls_to_bangalore.append(call.dst_number)
+
+    percentage_calls_to_bangalore = (
+        len(calls_to_bangalore)/calls_from_bangalore) * 100
+
     return prefixes, percentage_calls_to_bangalore
 
 
 def printPhoneCodes(codeList):
-  print("The numbers called by people in Bangalore have codes:")
-  sorted(codeList)
-  for code in codeList:
-    print(code)
+    print("The numbers called by people in Bangalore have codes:")
+    codeList = sorted(codeList)
+    for code in codeList:
+        print(code)
+
 
 def solveP3():
-  prefixes, calls_percentage = getBangaloreCalls()
-  
-  # Print response
-  printPhoneCodes(prefixes)
-  print()
-  print(f"{round(calls_percentage, 2)} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
+    prefixes, calls_percentage = getBangaloreCalls()
+
+    # Print response
+    printPhoneCodes(prefixes)
+    print()
+    print(f"{round(calls_percentage, 2)} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
+
 
 solveP3()
-

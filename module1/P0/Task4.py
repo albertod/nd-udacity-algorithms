@@ -12,6 +12,7 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
+
 def getCallAndText():
     """
     Returns 3 dictionaries in a tuple
@@ -23,7 +24,7 @@ def getCallAndText():
     sending_texts = {}
     receiving_texts = {}
     src_calls = set()
-    
+
     with open('texts.csv', 'r') as f:
         reader = csv.reader(f)
         for row in reader:
@@ -38,6 +39,7 @@ def getCallAndText():
 
     return receving_calls, sending_texts, receiving_texts, src_calls
 
+
 def getPossibleTelemarketers(receving_calls, sending_texts, receiving_texts, src_calls):
     results = set()
     for call in src_calls:
@@ -49,13 +51,16 @@ def getPossibleTelemarketers(receving_calls, sending_texts, receiving_texts, src
 def solveP4():
     print("These numbers could be telemarketers: ")
     receving_calls, sending_texts, receiving_texts, src_calls = getCallAndText()
-    possible_telemarketers = getPossibleTelemarketers(receving_calls, sending_texts, receiving_texts, src_calls)
-    print(possible_telemarketers)
+    possible_telemarketers = getPossibleTelemarketers(
+        receving_calls, sending_texts, receiving_texts, src_calls)
+    for number in possible_telemarketers:
+        print(number)
 
 # possible marketer
 # dont send text -> no src_number on text.csv
 # don't receive text -> no dst_number on text.csv
 # don't receive calls -> not dst_number on calls.csv
+
 
 # possible telemarketers are all the src_number from call.csv
 solveP4()
