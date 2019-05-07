@@ -43,7 +43,7 @@ def getCallAndText():
 def getPossibleTelemarketers(receving_calls, sending_texts, receiving_texts, src_calls):
     results = set()
     for call in src_calls:
-        if call not in receving_calls and call not in sending_texts and call not in receiving_texts and not call.startswith("140"):
+        if call not in receving_calls and call not in sending_texts and call not in receiving_texts:
             results.add(call)
     return sorted(results)
 
