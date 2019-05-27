@@ -67,6 +67,9 @@ class LRU_Cache:
         self.capacity = capacity
 
     def get(self, key):
+        # Check for null or emtpy key
+        if key == None or key == "":
+            return -1
         # Retrieve item from provided key. Return -1 if nonexistent. 
         if key in self.map_to_list and self.map_to_list[key].value != None:
             self.list_ussage_value.updateUsage(self.map_to_list[key])
@@ -74,6 +77,9 @@ class LRU_Cache:
         return -1
 
     def set(self, key, value):
+        # Not allow null or empty key
+        if key == None or key == "":
+            return
         # Set the value if the key is not present in the cache. If the cache is at capacity remove the oldest item. 
         if self.list_ussage_value.number_of_elements == self.capacity:
             removedKey = self.list_ussage_value.removeLeastUsed()

@@ -40,7 +40,12 @@ def is_user_in_group(user, group):
       user(str): user name/id
       group(class:Group): group to check user membership against
     """
-    if group is None:
+    if group is None or group == "":
+        print('Invalid group')
+        return False
+
+    if user == None or user == "":
+        print('Invalid user')
         return False
 
     q = queue.Queue()
@@ -67,3 +72,5 @@ print(is_user_in_group('alberto', sub_child)) # False
 parent.add_user('alberto') 
 print(is_user_in_group('alberto', sub_child)) # False
 print(is_user_in_group('alberto', parent)) # True
+print(is_user_in_group('', parent)) # False
+print(is_user_in_group('Test', None)) # False

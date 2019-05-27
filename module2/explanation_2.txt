@@ -1,3 +1,6 @@
-fro this problem I used recursion. As the base case I used the assertion -> 'entry is a file" -> end recusion,
-but print only if the file matched the suffix. If it is not a file call the function with the current path + directory as the 
-path parameter.
+From this problem I used recursion. As the base case I used the assertion -> 'entry is a file" -> end recusion, 
+and added the path to the path list if the extension matched the argument. If the current iteraction was a directory I recursevlly 
+called the function with the directory as the base directory for the search. 
+
+Time complexity: O(N) -> Where N is the number of files + directories on the search space
+Space complexity: O(M) -> where M is the number of files that match the extension and are added to the list

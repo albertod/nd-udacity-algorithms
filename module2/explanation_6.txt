@@ -5,5 +5,5 @@ added to the response the elements that weren't not found on the first round.
 For intersections I used the same technique, I use the map to check all the values on the first list. On the second iteraction I 
 went over the map for every element and if the element was present on the first list I added to the result.
 
-Time complexity for Union or Interception:
-O(N) -> Where N is max(lenght(list1), length(list2));
+Time complexity for Union or Intersection: O(N) -> Where N is max(length(list1), length(list2));
+Space complexity: O(N) where N is the humber of elements in the interception or union of both lists

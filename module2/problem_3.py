@@ -32,6 +32,9 @@ def huffman_encoding(data):
     encoded_data -> data encoded from Huffman tree
     tree -> hufman tree for the encoded data
     '''
+    #edge case
+    if data == None or data == "":
+        return
     # crete dict with character -> frequency
     char_frequency = {}
     for char in data:
@@ -39,12 +42,17 @@ def huffman_encoding(data):
             char_frequency[char] +=1
         else:
             char_frequency[char] = 1
+
+    if len(char_frequency) == 1:
+        # we only have one character in the data
+        key = data[0]
+        return "0"*len(data), Node(None, key), {"0": key}
     
     # create priority queue
     node_priority = []
     for char, frequency in char_frequency.items():
         heapq.heappush(node_priority, Node(frequency, char))
-    
+
     # Create Huffman tree
     while len(node_priority) > 1:
         # Remove left and right node with < frequency 
@@ -56,7 +64,7 @@ def huffman_encoding(data):
         parent_node.right = right
         # add new tree to heap
         heapq.heappush(node_priority, parent_node)
-    
+
     huffman_tree_root = node_priority.pop()
     
     # Traverse the huffman tree using DFS
@@ -94,10 +102,12 @@ def huffman_decoding(data,tree, codes):
     path = ""
     for digit in data:
         if digit == "0":
-            cursor = cursor.left
+            if cursor.left:
+                cursor = cursor.left
             path = path + "0"
         else:
-            cursor = cursor.right
+            if cursor.right:
+                cursor = cursor.right
             path = path + "1"
         if cursor.isLeaf():
             decoded_data += codes[path]
@@ -108,7 +118,40 @@ def huffman_decoding(data,tree, codes):
 
 if __name__ == "__main__":
 
+    print('Test 1')
     a_great_sentence = "The bird is the word"
+
+    print("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
+    print("The content of the data is: {}\n".format(a_great_sentence))
+
+    encoded_data, tree, codes = huffman_encoding(a_great_sentence)
+
+    print("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+    print("The content of the encoded data is: {}\n".format(encoded_data))
+
+    decoded_data = huffman_decoding(encoded_data, tree, codes)
+
+    print("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+    print("The content of the decoded data is: {}\n".format(decoded_data))
+
+    print('Test 2')
+    a_great_sentence = "I like to eat tofu"
+
+    print("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
+    print("The content of the data is: {}\n".format(a_great_sentence))
+
+    encoded_data, tree, codes = huffman_encoding(a_great_sentence)
+
+    print("The size of the encoded data is: {}\n".format(sys.getsizeof(int(encoded_data, base=2))))
+    print("The content of the encoded data is: {}\n".format(encoded_data))
+
+    decoded_data = huffman_decoding(encoded_data, tree, codes)
+
+    print("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
+    print("The content of the decoded data is: {}\n".format(decoded_data))
+
+    print('Test 3')
+    a_great_sentence = "AAAAAAAA"
 
     print("The size of the data is: {}\n".format(sys.getsizeof(a_great_sentence)))
     print("The content of the data is: {}\n".format(a_great_sentence))

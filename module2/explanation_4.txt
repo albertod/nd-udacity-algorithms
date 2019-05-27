@@ -1,3 +1,2 @@
 In this problem I represent the relationship between groups as a Tree. This allowed me to check every group using a BFS algorithm by tree levels.
-The time complexity of this alogrithm will be  O(Nlog(M)) N being the largest number of users a groups have and M being the height 
-of the tree with the users.
+The time complexity of this alogrithm will be  O(N) N being = max(number of user in a group) + number of groups

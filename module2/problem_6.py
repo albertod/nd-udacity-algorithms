@@ -45,19 +45,21 @@ def union(llist_1, llist_2):
     node_dic = {}
     result = []
     
-    cur = llist_1.head
-    while cur is not None:
-        if cur.value not in node_dic: # This avoid duplicates
-            node_dic[cur.value] = True
-            result.append(cur.value)
-        cur = cur.next
+    if llist_1 != None:
+        cur = llist_1.head
+        while cur is not None:
+            if cur.value not in node_dic: # This avoid duplicates
+                node_dic[cur.value] = True
+                result.append(cur.value)
+            cur = cur.next
 
-    cur = llist_2.head
-    while cur is not None:
-        if cur.value not in node_dic: # This avoid duplicates
-           node_dic[cur.value] = True
-           result.append(cur.value)
-        cur = cur.next
+    if llist_2 != None:
+        cur = llist_2.head
+        while cur is not None:
+            if cur.value not in node_dic: # This avoid duplicates
+                node_dic[cur.value] = True
+                result.append(cur.value)
+            cur = cur.next
     
     return result
 
@@ -92,16 +94,16 @@ for i in element_1:
 for i in element_2:
     linked_list_2.append(i)
 
-print (union(linked_list_1,linked_list_2))
-print (intersection(linked_list_1,linked_list_2))
+print (union(linked_list_1,linked_list_2)) # [3, 2, 4, 35, 6, 65, 21, 32, 9, 1, 11]
+print (intersection(linked_list_1,linked_list_2)) # [6, 4, 6, 21]
 
 # Test case 2
 
 linked_list_3 = LinkedList()
 linked_list_4 = LinkedList()
 
-element_1 = [3,2,4,35,6,65,6,4,3,23]
-element_2 = [1,7,8,9,11,21,1]
+element_1 = [3,2,4,35,6,65,6,4,3,23] 
+element_2 = [1,7,8,9,11,21,1] 
 
 for i in element_1:
     linked_list_3.append(i)
@@ -109,5 +111,36 @@ for i in element_1:
 for i in element_2:
     linked_list_4.append(i)
 
-print (union(linked_list_3,linked_list_4))
-print (intersection(linked_list_3,linked_list_4))
+print (union(linked_list_3,linked_list_4)) # [3, 2, 4, 35, 6, 65, 23, 1, 7, 8, 9, 11, 21]
+print (intersection(linked_list_3,linked_list_4)) # []
+
+# Test case 3
+
+linked_list_3 = LinkedList()
+linked_list_4 = LinkedList()
+
+element_1 = [] 
+element_2 = [] 
+
+for i in element_1:
+    linked_list_3.append(i)
+
+for i in element_2:
+    linked_list_4.append(i)
+
+print (union(linked_list_3,linked_list_4)) # []
+print (intersection(linked_list_3,linked_list_4)) # []
+
+# Test case 4 
+
+linked_list_3 = LinkedList()
+linked_list_4 = LinkedList()
+
+element_1 = None 
+element_2 = [2,3,4] 
+
+for i in element_2:
+    linked_list_4.append(i)
+
+print (union(linked_list_3,linked_list_4)) # []
+print (intersection(linked_list_3,linked_list_4)) # []

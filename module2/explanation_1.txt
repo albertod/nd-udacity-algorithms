@@ -1,3 +1,6 @@
 This problem can be solved by using 2 data structures together. A Queue (using double linkedlist) and dictionary.
 The dictonary is used with the purpose or mapping a key to a value on O(1), in order to give priority for deletion I used
 a queue to keep track of use status.
+
+Time complexity for get and put operations: O(1)
+Space complexity: O((N) -> where N is the number of elements in out LRU cache
