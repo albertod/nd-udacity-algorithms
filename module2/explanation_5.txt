@@ -1,0 +1,4 @@
+Used 2 data structures to represent this blockchain. First used a linked list with a pointer to the last element (tail). This 
+allowed me to determine the last block on the chain. Second I used a dictionary to do the mapping hash -> reference to block. This
+allowed me to identify the location of a block in memory on O(1). for the hash I added the timestamp and the data itself to 
+improve the randomness of the hash.

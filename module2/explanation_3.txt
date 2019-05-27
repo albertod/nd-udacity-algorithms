@@ -1,0 +1,13 @@
+I divided this problem in 2 steps
+
+1 Step -> Huffman encoding:
+ * For this task I first created a dictionary  -> character -> frequency 
+ * Then created a priority queue (min heap) used as a comparation key the frequency of the character
+ * Then started to build the huffman tree -> grab the first 2 nodes and merge them in anew tree with the root freq = sum(node1, node2)
+ * Having the huffman tree I then strted to create a dictionary with the mapping -> character -> binary_string_encoding
+ * last step was to tanslate every digit of the original string using the dictionary (character -> binary_string_encoding)
+
+ 2 Step -> Hufman decoding:
+ * Using the huffman_tree I transversed using the encoded string, once found a leaf I used the corresponding path 
+ and translate it with the dictionary. 
+ * Then reset the cursor to the root of the huffman tree and repeat.

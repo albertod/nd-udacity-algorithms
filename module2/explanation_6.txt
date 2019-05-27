@@ -1,0 +1,9 @@
+For this problem I used a dictionary to keep track of the visited elements. For the Union operation, I check the first list, 
+once a value has visited I added it to the map so I didn't repeated again, then when going over the second list I only
+added to the response the elements that weren't not found on the first round.
+
+For intersections I used the same technique, I use the map to check all the values on the first list. On the second iteraction I 
+went over the map for every element and if the element was present on the first list I added to the result.
+
+Time complexity for Union or Interception:
+O(N) -> Where N is max(lenght(list1), length(list2));

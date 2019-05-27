@@ -1,0 +1,3 @@
+fro this problem I used recursion. As the base case I used the assertion -> 'entry is a file" -> end recusion,
+but print only if the file matched the suffix. If it is not a file call the function with the current path + directory as the 
+path parameter.
