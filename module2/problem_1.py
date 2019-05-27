@@ -127,3 +127,14 @@ our_cache.set(4, 4)
 print(our_cache.get(3))       # return -1
 print(our_cache.get(4))       # return 4
 print()
+
+
+print('LRU cache wwith edge case None and empty')
+our_cache = LRU_Cache(2)
+our_cache.set(None, 1)
+our_cache.set("", 2)
+print(our_cache.get(1))       # returns 1
+our_cache.set(3, 3)
+print(our_cache.get(2))       # returns -1
+print(our_cache.get(3))       # return 3
+print()

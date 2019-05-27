@@ -114,7 +114,7 @@ for i in element_2:
 print (union(linked_list_3,linked_list_4)) # [3, 2, 4, 35, 6, 65, 23, 1, 7, 8, 9, 11, 21]
 print (intersection(linked_list_3,linked_list_4)) # []
 
-# Test case 3
+# Test case 3 - Both list are None
 
 linked_list_3 = LinkedList()
 linked_list_4 = LinkedList()
@@ -131,7 +131,7 @@ for i in element_2:
 print (union(linked_list_3,linked_list_4)) # []
 print (intersection(linked_list_3,linked_list_4)) # []
 
-# Test case 4 
+# Test case 4 (Edge case) - One list is None
 
 linked_list_3 = LinkedList()
 linked_list_4 = LinkedList()
@@ -142,5 +142,14 @@ element_2 = [2,3,4]
 for i in element_2:
     linked_list_4.append(i)
 
+print (union(linked_list_3,linked_list_4)) # []
+print (intersection(linked_list_3,linked_list_4)) # []
+
+# Test case 5 (Edge case) - Two list are None
+
+linked_list_3 = LinkedList()
+linked_list_4 = LinkedList()
+element_1 = None 
+element_2 = None
 print (union(linked_list_3,linked_list_4)) # []
 print (intersection(linked_list_3,linked_list_4)) # []

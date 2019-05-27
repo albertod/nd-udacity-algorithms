@@ -5,3 +5,5 @@ improve the randomness of the hash.
 
 Time complexity: To find a block -> O(N) as I have to go over each node on the list
 Space complexity: O(N) -> where N is the number of blocks on the blockchain
+
+Note: for this problem the only edge case is when data is None. but empty data "" can be added to the blockchain.

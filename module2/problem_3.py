@@ -34,7 +34,7 @@ def huffman_encoding(data):
     '''
     #edge case
     if data == None or data == "":
-        return
+        return None, None, None
     # crete dict with character -> frequency
     char_frequency = {}
     for char in data:
@@ -97,6 +97,8 @@ def find_path_func(node, codes, current_path):
         return codes
 
 def huffman_decoding(data,tree, codes):
+    if data == None or tree == None or codes == None:
+        return None
     decoded_data = ""
     cursor = tree
     path = ""
@@ -165,3 +167,13 @@ if __name__ == "__main__":
 
     print("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
     print("The content of the decoded data is: {}\n".format(decoded_data))
+
+    print('Edge case - None')
+    a_great_sentence = None
+    encoded_data, tree, codes = huffman_encoding(a_great_sentence)
+    decoded_data = huffman_decoding(encoded_data, tree, codes)
+
+    print('Edge case - Empty')
+    a_great_sentence = ""
+    encoded_data, tree, codes = huffman_encoding(a_great_sentence)
+    decoded_data = huffman_decoding(encoded_data, tree, codes)

@@ -28,6 +28,9 @@ class BlockChain:
         self.block_dic = {}
 
     def add_block(self, data):
+        if data == None:
+            print("None data can't be added")
+            return
         if self.head == None:
             block = self.create_block(data, 0)
             self.head = block
@@ -72,4 +75,9 @@ print(blockchain)
 
 print("Empty Blockchain")
 blockchain = BlockChain()
+print(blockchain)
+
+print("Edge case Blockchain add None")
+blockchain = BlockChain()
+blockchain.add_block(None)
 print(blockchain)

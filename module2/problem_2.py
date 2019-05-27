@@ -1,6 +1,9 @@
 import os
 
 def find_files(suffix, path):
+    if suffix == None:
+        print("Invalid suffix")
+        return
     return find_files_func(suffix, path, [])
 
 def find_files_func(suffix, path, list):
@@ -39,4 +42,7 @@ print(find_files(".h", "testdir"))
 print()
 print("Print all the files")
 print(find_files("", "testdir"))
+print()
+# Edge case None
+print(find_files(None, "testdir"))
 print()
