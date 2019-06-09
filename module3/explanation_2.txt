@@ -1,0 +1,3 @@
+For this problem I assumed I had 2 sorted arrays in my initial array. Using binary search will give me the runtime of O(log(n)), but with the special case that the
+array might be rotated, to account for this I checked on the first iteraction if mid < num  -> before taking the right half of the array, check the last element.
+If the last element was still < mid then there wasn't a point of keep checking as the num won't be on that half, so check the left half of the array instead.

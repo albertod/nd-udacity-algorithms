@@ -1,7 +1,3 @@
-# For this problem I first started with sorting using mergeSort, the variant is that I sorted in descending order. Then I created an array "result" with size 2.
-# As I know my sorted array is in  descending order I can fill my result array interchangeable between index 0 and index 1, this will give me the 2 greatest number possible.
-# The runtime of this algorithm is (mergeSort + going over array) == O(nlog(n) + n) == O(nlog(n)).
-
 def rearrange_digits(input_list):
     """
     Rearrange Array Elements so as to form two number such that their sum is maximum.
@@ -57,5 +53,5 @@ def test_function(test_case):
         print("Fail")
 
 test_function([[1, 2, 3, 4, 5], [542, 31]])
-test_case = [[4, 6, 2, 5, 9, 8], [964, 852]]
-test_function(test_case)
+test_function([[4, 6, 2, 5, 9, 8], [964, 852]])
+test_function([[0,0], [0, 0]])

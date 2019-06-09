@@ -1,0 +1,11 @@
+For this problem I used each node of the trie as a character. On the insertion step as I trasversed the trie until 1 of 2 cases happened
+
+1. Finished searching for the word and all the nodes were present on the trie.
+2. There were no more nodes, so I started adding a node for each remaining character
+
+Both of this operation would be O(n) -> n being the length of the word
+
+For the suffix section I did the following algorithms:
+1. Traverse the trie until the last letters of the prefix was found on the trie
+2. When reaching the trie node perform a DFS. This allowed me to print each word by tacking in count any inner word too -> Example add[ition] -> print "add" and "addition"
+-> The suffix function takes runtime complexity of O(N). -> N being the number of nodes on the trie

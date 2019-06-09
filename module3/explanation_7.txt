@@ -1,0 +1,3 @@
+For this problem I used the trie DS. It is a convenient aporach as it allow represent the relationshipt between parent-child paths very easy. At the same time by identifying a node as a leaf we know
+it is responosible for handling a router. The time complexity for search and insert is O(n) as we can have a chain as long as the numbre of parent-childs subpath. The space complexity is O(N)
+N being the longest path on the domain our router covers. Path = /about/me/xxx/yyy/zzz.

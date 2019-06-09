@@ -14,6 +14,8 @@ def sqrt(number):
     Returns:
        int: Floored Square Root
     """
+    if number < 0:
+        return None # SQRT of negative number are imaginary numbers
     l = 0
     r = number
     while l <= r:

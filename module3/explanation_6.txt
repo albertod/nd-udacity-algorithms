@@ -1,0 +1,3 @@
+Keep a vairbale to track the min and max on the "ints" list. To start I set min and max to the first element in "ints". This will cover the case that "ints" has only
+one element. In case there are > 1 elements I check each with the min and max of my result. 
+As I go over the list only one time this algorithm runs in O(n) time. and use O(1) space
