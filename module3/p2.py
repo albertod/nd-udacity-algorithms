@@ -7,6 +7,9 @@ def rotated_array_search(arr, number):
     Returns:
        int: Index or -1
     """
+    if (len(arr) == 0):
+        return -1
+
     left = 0
     right = len(arr) - 1
     have_rotated = False
@@ -52,3 +55,4 @@ test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 8])
 test_function([[6, 7, 8, 1, 2, 3, 4], 1])
 test_function([[6, 7, 8, 1, 2, 3, 4], 10])
+test_function([[], -1])

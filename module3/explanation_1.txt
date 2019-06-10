@@ -3,3 +3,5 @@ The runtime was O(sqrt(n)). As the intructions says we need a lower runtime, I t
 
 My current solution uses binary search, instead of using an array to look for values I decided to search with the domain of number 0 to number, testing my candidate
 mid in every iteraction. As I'm halving my search space by n/(2^k) we know that the run time of this while loop k times -> k = log(n). -> O(log(n))
+
+Space complexity: O(1)

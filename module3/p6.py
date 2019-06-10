@@ -5,6 +5,8 @@ def get_min_max(ints):
     Args:
        ints(list): list of integers containing one or more integers
     """
+    if not ints or len(ints) == 0:
+        return None # Handle invalid cases
     result = [ints[0], ints[0]]
     for ele in ints[1:]:
         if result[0] > ele:

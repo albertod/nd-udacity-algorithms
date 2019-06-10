@@ -3,9 +3,11 @@ For this problem I used each node of the trie as a character. On the insertion s
 1. Finished searching for the word and all the nodes were present on the trie.
 2. There were no more nodes, so I started adding a node for each remaining character
 
-Both of this operation would be O(n) -> n being the length of the word
+Both of this cases (Insertion operation) would be O(n) -> n being the length of the longest word being added
 
 For the suffix section I did the following algorithms:
 1. Traverse the trie until the last letters of the prefix was found on the trie
-2. When reaching the trie node perform a DFS. This allowed me to print each word by tacking in count any inner word too -> Example add[ition] -> print "add" and "addition"
--> The suffix function takes runtime complexity of O(N). -> N being the number of nodes on the trie
+2. When reaching the trie node from the last character of the prefix I performed a DFS. This allowed me to print each word by tacking in count any inner word too -> Example add[ition] -> print "add" and "addition"
+-> The suffix function takes runtime complexity of O(N). -> N being the number of suffix on the trie form the prefix nodes on the trie
+
+Space complexity: O(N) -> N being the number of distint characters aded to the trie
